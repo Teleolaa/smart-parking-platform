@@ -1,5 +1,5 @@
 # Smart Parking Platform: Project Document
-**Version:** 0.1
+**Version:** 0.2
 **Prepared by:** WE ARE $oftware ¢orp
 **Date:** 09/09/2026
 
@@ -7,6 +7,7 @@
 - [1. Research: Existing Software Landscape](#1-research-existing-software-landscape)
 - [2. Vision and Scope](#2-vision-and-scope)
 - [3. Software Requirements Specification](#3-software-requirements-specification-srs)
+- [4. Project Planning](#4-project-planning)
 
 
 ## 1. Research: Existing Software Landscapes
@@ -115,5 +116,64 @@ Platform.
 14. Add a Vehicle to Profile
 15. Process a Refund (Finance staff)
 
----
-*Smart Parking Platform | Internal Document |WE ARE $oftware ¢orp - v0.1*
+
+## 4. Project Planning
+
+### 4.1 Work Breakdown Structure (WBS)
+
+1. Authentication
+   - 1.1 Login
+     - Username/password login form
+     - Login validation and error handling
+   - 1.2 Registration
+     - Account creation form
+     - Email verification
+   - 1.3 Session Management
+     - Token/session handling
+     - Auto-logout on inactivity
+
+2. User / Operator Management
+   - 2.1 Add User (Driver)
+     - Driver account creation
+     - Driver profile setup (vehicle info, payment method)
+   - 2.2 Add Operator
+     - Operator account creation
+     - Role/permission assignment
+
+3. Dashboards
+   - 3.1 Operator Dashboard
+     - Add / Edit / Remove Garage
+     - View real-time occupancy per garage
+   - 3.2 Driver Dashboard
+     - Find parking (map search)
+     - Select spot and pay
+
+4. Reporting
+   - 4.1 Occupancy Reporting
+     - Generate occupancy graphs
+     - Historical utilization trends
+   - 4.2 Financial Reporting
+     - Export financial reports
+     - Revenue summary by garage
+
+### 4.2 Draft Timeline (Gantt Chart)
+​```mermaid
+gantt
+    title Smart Parking Platform — Draft Timeline
+    dateFormat  YYYY-MM-DD
+    section Authentication
+    Login & Registration        :a1, 2026-09-21, 5d
+    Session Management          :a2, after a1, 3d
+    section User/Operator Mgmt
+    Add User (Driver)           :b1, after a2, 3d
+    Add Operator                :b2, after b1, 3d
+    section Dashboards
+    Operator Dashboard          :c1, after b2, 7d
+    Driver Dashboard            :c2, after c1, 7d
+    section Reporting
+    Occupancy Reporting         :d1, after c2, 5d
+    Financial Reporting         :d2, after d1, 5d
+    section Milestones
+    Prototype Ready             :milestone, m1, after c2, 0d
+    Beta Release                :milestone, m2, after d2, 0d
+​```
