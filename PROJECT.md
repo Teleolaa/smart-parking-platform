@@ -157,9 +157,9 @@ Platform.
      - Revenue summary by garage
 
 ### 4.2 Draft Timeline (Gantt Chart)
-​```mermaid
+​​```mermaid
 gantt
-    title Smart Parking Platform - Draft Timelime
+    title Smart Parking Platform - Draft Timeline
     dateFormat  YYYY-MM-DD
     section Authentication
     Login & Registration        :a1, 2026-09-21, 5d
@@ -174,7 +174,6 @@ gantt
     Occupancy Reporting         :d1, after c2, 5d
     Financial Reporting         :d2, after d1, 5d
     section MIlestones
-    Prototype Ready             :milestone, m1,after c2, 0d
-    Beta Release                :milestone, m2,after d2, 0d
+    Prototype Ready             :milestone, m1, after c2, 0d
+    Beta Release                :milestone, m2, after d2, 0d
 ```
-
