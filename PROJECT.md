@@ -156,24 +156,4 @@ Platform.
      - Export financial reports
      - Revenue summary by garage
 
-### 4.2 Draft Timeline (Gantt Chart)
-​​```mermaid
-gantt
-    title Smart Parking Platform - Draft Timeline
-    dateFormat  YYYY-MM-DD
-    section Authentication
-    Login & Registration        :a1, 2026-09-21, 5d
-    Session Management          :a2, after a1, 3d
-    section User/Operator Mgmt
-    Add User (Driver)           :b1, after a2, 3d
-    Add Operator                :b2, after b1, 3d
-    section Dashboards
-    Operator Dashboard          :c1, after b2, 7d
-    Driver Dashboard            :c2, after c1, 7d
-    section Reporting
-    Occupancy Reporting         :d1, after c2, 5d
-    Financial Reporting         :d2, after d1, 5d
-    section MIlestones
-    Prototype Ready             :milestone, m1, after c2, 0d
-    Beta Release                :milestone, m2, after d2, 0d
-```
+
