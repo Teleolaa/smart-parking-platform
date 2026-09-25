@@ -1,5 +1,5 @@
 # Smart Parking Platform: Project Document
-**Version:** 0.2
+**Version:** 0.3
 **Prepared by:** WE ARE $oftware ¢orp
 **Date:** 09/09/2026
 
@@ -156,4 +156,10 @@ Platform.
      - Export financial reports
      - Revenue summary by garage
 
+
+<img width="1916" height="973" alt="image" src="https://github.com/user-attachments/assets/ad01ac9f-31f2-4408-900c-40d97cb5707f" />
+Figure 1: Sprint 1 board showing the active sprint's To Do items.
+
+<img width="1916" height="978" alt="image" src="https://github.com/user-attachments/assets/5de6f9e5-6320-4b5b-a4c3-8fcdf2e76399" />
+Figure 2: Product backlog showing the remaining items not yet pulled into Sprint 1.
 
