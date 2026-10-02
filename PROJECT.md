@@ -1,5 +1,5 @@
 # Smart Parking Platform: Project Document
-**Version:** 0.3
+**Version:** 0.4
 **Prepared by:** WE ARE $oftware ¢orp
 **Date:** 09/09/2026
 
@@ -8,6 +8,7 @@
 - [2. Vision and Scope](#2-vision-and-scope)
 - [3. Software Requirements Specification](#3-software-requirements-specification-srs)
 - [4. Project Planning](#4-project-planning)
+- [5. Risk, Quality, and Communication Management](#5-risk-quality-and-communication-management)
 
 
 ## 1. Research: Existing Software Landscapes
@@ -163,3 +164,47 @@ Figure 1: Sprint 1 board showing the active sprint's To Do items.
 <img width="1916" height="978" alt="image" src="https://github.com/user-attachments/assets/5de6f9e5-6320-4b5b-a4c3-8fcdf2e76399" />
 Figure 2: Product backlog showing the remaining items not yet pulled into Sprint 1.
 
+## 5. Risk, Quality, and Communication Management
+
+### 5.1 Risk Register
+
+| ID | Category | Description | Probability | Impact | Risk Level | Owner | Response Strategy | Status/Notes |
+|----|----------|--------------|-------------|--------|------------|-------|--------------------|---------------|
+| R1 | Technical | Parking sensor/API integration fails to report real-time occupancy reliably | Moderate (3) | Major (4) | High | Backend Lead | Mitigate — build polling fallback + cached last-known state | Open |
+| R2 | Technical | Third-party payment processor API has downtime or breaking changes | Low (2) | Major (4) | Medium | Backend Lead | Transfer — rely on processor's SLA; add retry/queue logic | Open |
+| R3 | Technical | Mobile app fails on older iOS/Android versions | Moderate (3) | Minor (2) | Medium | Mobile Dev | Mitigate — define minimum supported OS versions early | Open |
+| R4 | Technical | Database can't scale to support 5,000+ concurrent users (per NFR1) | Low (2) | Catastrophic (5) | Medium | Backend Lead | Mitigate — load testing before launch; cloud auto-scaling | Open |
+| R5 | Schedule | Garage hardware/sensor vendor delays installation past planned date | Moderate (3) | Major (4) | High | Project Manager | Accept — build schedule buffer into timeline | Open |
+| R6 | Schedule | Operator dashboard and driver app development dependencies slip (per WBS) | Moderate (3) | Moderate (3) | Medium | Project Manager | Mitigate — parallelize independent workstreams | Open |
+| R7 | Schedule | City compliance/legal review takes longer than expected | Moderate (3) | Major (4) | High | Project Manager | Accept — submit compliance docs early in parallel with dev | Open |
+| R8 | Schedule | Sprint 1 scope underestimated, pushing Sprint 2 start | Low (2) | Moderate (3) | Low | Scrum Master | Mitigate — track velocity after Sprint 1, adjust Sprint 2 scope | Open |
+| R9 | Financial | Cloud hosting costs exceed budget due to higher-than-expected usage | Moderate (3) | Moderate (3) | Medium | Finance Lead | Mitigate — set usage alerts/budget caps on cloud provider | Open |
+| R10 | Financial | City funding/contract renewal delayed, affecting payroll | Low (2) | Catastrophic (5) | Medium | Project Manager | Transfer — negotiate milestone-based payment terms in contract | Open |
+| R11 | Financial | Third-party API/licensing costs increase mid-project | Low (2) | Minor (2) | Low | Finance Lead | Accept — minor cost, absorb into budget | Open |
+| R12 | People | Key developer leaves mid-project (turnover) | Moderate (3) | Major (4) | High | Project Manager | Mitigate — maintain documentation, cross-train team members | Open |
+| R13 | People | Team conflict over technical direction (e.g., architecture disagreements) | Low (2) | Moderate (3) | Low | Scrum Master | Mitigate — regular retrospectives, clear decision-making process | Open |
+| R14 | People | Skill gap — team lacks experience with real-time data/map APIs | Moderate (3) | Moderate (3) | Medium | Project Manager | Mitigate — allocate time for research spikes/training | Open |
+
+*Risk Level derived from the course's Risk Matrix (Probability × Impact).*
+
+### 5.2 Communication Plan
+
+**Meeting Cadence**
+
+| Meeting | Frequency | Attendees | Purpose |
+|---------|-----------|-----------|---------|
+| Daily Stand-up | Daily | Dev team | Short status sync — what was done, what's next, blockers |
+| Sprint/Progress Meeting | Bi-weekly | Dev team + Scrum Master | Deeper check-in on sprint progress, backlog grooming |
+| Sprint Review | End of each sprint | Full team + Product Owner | Demo completed work, gather feedback |
+| Stakeholder/Sponsor Meeting | Monthly | Project Manager, city stakeholders | Big-picture progress update, budget/timeline check-in |
+
+**Reporting Methods by Audience**
+
+- **Executives / City Stakeholders:** High-level status reports and dashboards — overall timeline, budget burn, key risks, milestone progress (no technical detail).
+- **Developers / Technical Team:** Detailed task-level updates via the Jira board (backlog, sprint board, burndown).
+- **Operators / End Users (future phase):** Release notes and demo videos when new features ship.
+
+**Team Size & Communication Channels**
+
+Using the formula from class — n(n-1)/2 — for a team of 6 (PM, Scrum Master, 2 backend devs, 1 mobile dev, 1 QA):
+6(6-1)/2 = **15 potential communication channels**. This is why structured cadences (stand-ups, sprint reviews) and a single source of truth (Jira + GitHub) are used instead of ad hoc one-off conversations.
