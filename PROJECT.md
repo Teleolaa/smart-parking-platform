@@ -1,5 +1,5 @@
 # Smart Parking Platform: Project Document
-**Version:** 0.4
+**Version:** 0.5
 **Prepared by:** WE ARE $oftware ¢orp
 **Date:** 09/09/2026
 
@@ -9,6 +9,7 @@
 - [3. Software Requirements Specification](#3-software-requirements-specification-srs)
 - [4. Project Planning](#4-project-planning)
 - [5. Risk, Quality, and Communication Management](#5-risk-quality-and-communication-management)
+- [6. Resource & Cost Management](#6-resource--cost-management)
 
 
 ## 1. Research: Existing Software Landscapes
@@ -208,3 +209,74 @@ Figure 2: Product backlog showing the remaining items not yet pulled into Sprint
 
 Using the formula from class — n(n-1)/2 — for a team of 6 (PM, Scrum Master, 2 backend devs, 1 mobile dev, 1 QA):
 6(6-1)/2 = **15 potential communication channels**. This is why structured cadences (stand-ups, sprint reviews) and a single source of truth (Jira + GitHub) are used instead of ad hoc one-off conversations.
+
+## 6. Resource & Cost Management
+
+### 6.1 Roles & Resources
+
+| Role | Name | Skill Level | FTE % Allocation |
+|------|------|-------------|-------------------|
+| Project Manager | Alice Reyes | Senior | 15% |
+| Backend Developer | Bob Nguyen | Mid-level | 50% |
+| Mobile Developer | Carol Fischer | Mid-level | 50% |
+| QA / Tester | Dan Osei | Junior | 20% |
+| DevOps/Infra | Elena Vargas | Mid-level | 15% |
+
+### 6.2 Resource & Cost Plan (Bottom-Up)
+
+**Project assumptions:** 5-person team, 3-month initial build phase (matching Sprint 1-3 timeline).
+
+| Role | Name | FTE % | Estimated Hours | Hourly Rate | Cost |
+|------|------|-------|------------------|-------------|------|
+| Project Manager | Alice | 0.15 | 72 | $45 | $3,240 |
+| Backend Developer | Bob | 0.50 | 240 | $45 | $10,800 |
+| Mobile Developer | Carol | 0.50 | 240 | $42 | $10,080 |
+| Tester | Dan | 0.20 | 96 | $30 | $2,880 |
+| DevOps | Elena | 0.15 | 72 | $50 | $3,600 |
+| **TOTAL** | | | **720** | | **$30,600** |
+
+**Infrastructure & Other Costs**
+
+| Item | Category | Qty/Months | Unit Cost | Duration | Total | Notes |
+|------|----------|------------|-----------|----------|-------|-------|
+| Cloud hosting (AWS) | Infra | 3 months | $250/month | 3 | $750 | EC2 + S3, matches current AWS setup |
+| Mapping/Navigation API | Third-party API | 3 months | $150/month | 3 | $450 | Real-time map/navigation data |
+| Payment processor fees | Third-party API | 3 months | $100/month | 3 | $300 | Transaction processing |
+| Dev tools & licenses | Tools | one-off | $400 | N/A | $400 | Jira, GitHub, IDE licenses |
+| **Subtotal (Infra)** | | | | | **$1,900** | |
+
+**Grand Total**
+
+| | Amount |
+|---|--------|
+| Labor subtotal | $30,600 |
+| Infrastructure subtotal | $1,900 |
+| Total before contingency | $32,500 |
+| Contingency (10%) | $3,250 |
+| **Grand Total** | **$35,750** |
+
+### 6.3 Budgeted Cashflow (Monthly)
+
+| Month | Labor | Infra | Licenses | Contingency (10%) | Total |
+|-------|-------|-------|----------|---------------------|-------|
+| Month 1 | $10,200 | $250 | $400 | $1,085 | $11,935 |
+| Month 2 | $10,200 | $250 | $0 | $1,045 | $11,495 |
+| Month 3 | $10,200 | $250 | $0 | $1,045 | $11,495 |
+| **Total** | **$30,600** | **$750** | **$400** | **$3,175** | **~$34,925** |
+
+*Note: Third-party API costs ($450 mapping + $300 payment = $750) are usage-based and billed starting Month 2 once integrations go live, so they're folded into the contingency buffer above rather than a fixed monthly line.*
+
+### 6.4 RACI Matrix
+
+| Task | PM (Alice) | Backend Dev (Bob) | Mobile Dev (Carol) | QA (Dan) | DevOps (Elena) |
+|------|------------|--------------------|----------------------|----------|------------------|
+| Requirements (SRS) | A | C | C | I | I |
+| Architecture / System Design | A | R | C | I | C |
+| Backend API Implementation | C | R | I | C | I |
+| Mobile/Frontend Implementation | C | I | R | C | I |
+| Database Design | C | R | I | I | C |
+| Testing | I | C | C | A/R | I |
+| Deployment / Release | C | C | I | I | A/R |
+| Reporting Dashboard | C | R | I | C | I |
+
+*R = Responsible, A = Accountable, C = Consulted, I = Informed*
