@@ -1,5 +1,5 @@
 # Smart Parking Platform: Project Document
-**Version:** 0.5
+**Version:** 0.6
 **Prepared by:** WE ARE $oftware ¢orp
 **Date:** 09/09/2026
 
@@ -85,7 +85,7 @@ Platform.
 - NFR2: Availability data shall refresh within 5 seconds.
 - NFR3: The system shall maintain 99.9% uptime.
 
-### 3.5 Use Cases (minimum 15, two fully written, rest as titles to expand)
+### 3.5 Use Cases 
 
 **UC1 — Reserve a Parking Space**
 - Actor: Driver
@@ -101,62 +101,187 @@ Platform.
   level/zone 3) Operator filters by garage
 - Postcondition: Operator has current occupancy snapshot
 
-**Remaining use cases:**
+**UC3 — Cancel a Reservation**
+- Actor: Driver
+- Precondition: User has an active, unexpired reservation
+- Steps: 1) User opens "My Reservations" 2) Selects the reservation to cancel
+  3) Confirms cancellation 4) System releases the held spot 5) System issues
+  refund per cancellation policy
+- Postcondition: Spot is released back to availability; reservation marked
+  "Cancelled"
 
+**UC4 — Register a New Account**
+- Actor: Driver
+- Precondition: User does not have an existing account
+- Steps: 1) User selects "Sign Up" 2) Enters email, password, basic profile
+  info 3) System sends verification email 4) User verifies email 5) Account
+  activated
+- Postcondition: User has an authenticated, active account
 
-3. Cancel a Reservation
-4. Register a New Account
-5. Navigate to Reserved Spot In-Garage
-6. Pay via Saved Payment Method
-7. Receive Low-Availability Notification
-8. Set Dynamic Pricing (Operator)
-9. Generate Occupancy Report (Operator)
-10. Extend an Active Reservation
-11. View Reservation History
-12. Report a Parking Issue (e.g., occupied "reserved" spot)
-13. Integrate with External Navigation App
-14. Add a Vehicle to Profile
-15. Process a Refund (Finance staff)
+**UC5 — Navigate to Reserved Spot In-Garage**
+- Actor: Driver
+- Precondition: User has an active reservation and has arrived at the garage
+- Steps: 1) App detects user is on-site (geofence/QR check-in) 2) App displays
+  in-garage directions to assigned level/zone 3) User follows wayfinding to spot
+- Postcondition: User is routed to their reserved spot
+
+**UC6 — Pay via Saved Payment Method**
+- Actor: Driver
+- Precondition: User has at least one saved payment method on file
+- Steps: 1) User reaches checkout during reservation 2) Selects saved card/
+  wallet 3) Confirms charge amount 4) System processes payment via processor
+  5) Receipt generated
+- Postcondition: Payment is captured and linked to the reservation
+
+**UC7 — Receive Low-Availability Notification**
+- Actor: Driver
+- Precondition: User has enabled notifications for a garage/area
+- Steps: 1) System monitors occupancy for watched garage 2) Occupancy crosses
+  low-availability threshold 3) System pushes notification to user's device
+- Postcondition: User is alerted before the garage fills up
+
+**UC8 — Set Dynamic Pricing (Operator)**
+- Actor: Parking Operator
+- Precondition: Operator is logged into admin dashboard and owns the garage
+- Steps: 1) Operator opens pricing settings for a garage 2) Adjusts rate
+  rules (time-of-day, demand-based) 3) Saves changes 4) System applies new
+  rates to future reservations
+- Postcondition: Updated pricing is live for the garage
+
+**UC9 — Generate Occupancy Report (Operator)**
+- Actor: Parking Operator
+- Precondition: Operator is logged into admin dashboard
+- Steps: 1) Operator selects garage and date range 2) System aggregates
+  occupancy data 3) Report is rendered as chart/table 4) Operator exports
+  report (PDF/CSV)
+- Postcondition: Operator has a historical occupancy report
+
+**UC10 — Extend an Active Reservation**
+- Actor: Driver
+- Precondition: User has an active reservation that is not yet expired and
+  the spot has no conflicting booking
+- Steps: 1) User opens active reservation 2) Selects "Extend" 3) System checks
+  spot availability for extended window 4) System charges additional time
+  5) Reservation window updated
+- Postcondition: Reservation end time is extended
+
+**UC11 — View Reservation History**
+- Actor: Driver
+- Precondition: User is logged in and has at least one past reservation
+- Steps: 1) User opens "My Reservations" 2) Selects "History" tab 3) System
+  displays past reservations with receipts
+- Postcondition: User can view/download past reservation records
+
+**UC12 — Report a Parking Issue**
+- Actor: Driver
+- Precondition: User has an active or recent reservation
+- Steps: 1) User selects "Report an Issue" 2) Chooses issue type (e.g., spot
+  occupied by another vehicle) 3) Adds description/photo 4) Submits report
+  5) System routes ticket to operator
+- Postcondition: Operator receives a logged issue ticket for the garage
+
+**UC13 — Integrate with External Navigation App**
+- Actor: Driver
+- Precondition: User has selected a garage/spot and has a navigation app
+  installed
+- Steps: 1) User selects "Navigate" 2) System hands off destination
+  coordinates to external app (e.g., Google Maps/Waze) via deep link
+  3) External app opens with route pre-loaded
+- Postcondition: User is routed to the garage via their preferred navigation
+  app
+
+**UC14 — Add a Vehicle to Profile**
+- Actor: Driver
+- Precondition: User is logged in
+- Steps: 1) User opens profile settings 2) Selects "Add Vehicle" 3) Enters
+  make/model/plate number 4) Saves vehicle
+- Postcondition: Vehicle is available for selection during future reservations
+
+**UC15 — Process a Refund (Finance staff)**
+- Actor: Finance and Billing Personnel
+- Precondition: A cancelled or disputed reservation exists with a captured
+  payment
+- Steps: 1) Finance staff opens the transaction in the admin finance panel
+  2) Verifies refund eligibility per policy 3) Issues refund 4) System
+  notifies payment processor and updates transaction status
+- Postcondition: Refund is issued and reservation marked "Refunded"
+
+## 3.6 User Stories
+
+| ID | As a... | I want to... | So that... | Related FR/UC |
+|----|---------|---------------|------------|----------------|
+| US1 | Driver | register and log in securely | I can access my account and saved info | FR1, UC4 |
+| US2 | Driver | see real-time parking availability on a map | I can find an open spot without circling the garage | FR2, UC1 |
+| US3 | Driver | reserve a specific spot | I can guarantee parking before I arrive | FR3, UC1 |
+| US4 | Driver | pay digitally when I reserve | I don't have to carry cash or a physical ticket | FR4, UC6 |
+| US5 | Driver | get a digital receipt | I have a record for expenses/reimbursement | FR5, UC1 |
+| US6 | Driver | cancel a reservation I no longer need | I'm not charged for a spot I won't use | UC3 |
+| US7 | Driver | get turn-by-turn directions inside the garage | I can find my reserved spot quickly | UC5 |
+| US8 | Driver | be notified when a garage I'm watching is nearly full | I can decide to park elsewhere before it's too late | UC7 |
+| US9 | Driver | extend my reservation | I'm not penalized if I need a few more minutes | UC10 |
+| US10 | Driver | view my past reservations | I can track my parking spend over time | UC11 |
+| US11 | Driver | report a problem with my spot | the operator can fix it instead of me losing the reservation | UC12 |
+| US12 | Driver | open my reservation in my usual navigation app | I don't have to learn a new map interface | UC13 |
+| US13 | Driver | save my vehicle info | I don't have to re-enter it every time I book | UC14 |
+| US14 | Parking Operator | see live occupancy across my garages | I know when to adjust staffing or pricing | FR2, UC2 |
+| US15 | Parking Operator | set dynamic pricing | I can maximize revenue during high-demand periods | UC8 |
+| US16 | Parking Operator | generate occupancy reports | I can report utilization trends to the city | UC9 |
+| US17 | Finance Staff | process refunds from a dedicated panel | I can resolve billing disputes without engineering help | UC15 |
+| US18 | System Administrator | assign roles/permissions to operators | access stays scoped correctly across garages | WBS 2.2 |
 
 
 ## 4. Project Planning
 
 ### 4.1 Work Breakdown Structure (WBS)
 
-1. Authentication
-   - 1.1 Login
-     - Username/password login form
-     - Login validation and error handling
-   - 1.2 Registration
-     - Account creation form
-     - Email verification
-   - 1.3 Session Management
-     - Token/session handling
-     - Auto-logout on inactivity
+1. Project Management & Planning — Owner: Alice (PM)
+   1.1 Sprint planning & backlog grooming — 2d/sprint
+   1.2 Stakeholder/status reporting — 1d/sprint
 
-2. User / Operator Management
-   - 2.1 Add User (Driver)
-     - Driver account creation
-     - Driver profile setup (vehicle info, payment method)
-   - 2.2 Add Operator
-     - Operator account creation
-     - Role/permission assignment
+2. Authentication — Owner: Bob (Backend)
+   2.1 Login (form, validation, error handling) — 3d
+   2.2 Registration (account creation, email verification) — 3d
+   2.3 Session management (tokens, auto-logout) — 2d
 
-3. Dashboards
-   - 3.1 Operator Dashboard
-     - Add / Edit / Remove Garage
-     - View real-time occupancy per garage
-   - 3.2 Driver Dashboard
-     - Find parking (map search)
-     - Select spot and pay
+3. User / Operator Management — Owner: Bob (Backend)
+   3.1 Driver account + profile (vehicle info, payment method) — 4d
+   3.2 Operator account + role/permission assignment — 3d
 
-4. Reporting
-   - 4.1 Occupancy Reporting
-     - Generate occupancy graphs
-     - Historical utilization trends
-   - 4.2 Financial Reporting
-     - Export financial reports
-     - Revenue summary by garage
+4. Driver-Facing Platform — Owner: Carol (Mobile)
+   4.1 Map search & real-time availability display — 5d
+   4.2 Reservation flow (select, confirm, hold) — 5d
+   4.3 Reservation management (extend, cancel, history) — 4d
+   4.4 In-garage navigation / wayfinding — 4d
+   4.5 External navigation app hand-off — 2d
+
+5. Payments — Owner: Bob (Backend)
+   5.1 Payment processor integration — 5d
+   5.2 Saved payment methods — 2d
+   5.3 Receipts & refund processing (finance panel) — 3d
+
+6. Notifications — Owner: Carol (Mobile)
+   6.1 Low-availability push alerts — 3d
+   6.2 Reservation confirmations/reminders — 2d
+
+7. Operator Dashboards — Owner: Carol (Mobile) / Bob (Backend)
+   7.1 Add/edit/remove garage — 3d
+   7.2 Real-time occupancy per garage — 4d
+   7.3 Dynamic pricing controls — 4d
+   7.4 Issue-report inbox — 2d
+
+8. Reporting — Owner: Bob (Backend)
+   8.1 Occupancy reporting (graphs, historical trends) — 4d
+   8.2 Financial reporting (revenue by garage, export) — 4d
+
+9. Testing & QA — Owner: Dan (QA)
+   9.1 Unit/integration test coverage — ongoing, 2d/sprint
+   9.2 Load testing (5,000+ concurrent users, NFR1) — 4d
+   9.3 UAT with stakeholder sign-off — 3d
+
+10. Deployment & Release — Owner: Elena (DevOps)
+   10.1 CI/CD pipeline setup — 3d
+   10.2 Staging & production environments — 3d
+   10.3 Launch & rollback plan — 2d
 
 
 <img width="1916" height="973" alt="image" src="https://github.com/user-attachments/assets/ad01ac9f-31f2-4408-900c-40d97cb5707f" />
@@ -164,6 +289,38 @@ Figure 1: Sprint 1 board showing the active sprint's To Do items.
 
 <img width="1916" height="978" alt="image" src="https://github.com/user-attachments/assets/5de6f9e5-6320-4b5b-a4c3-8fcdf2e76399" />
 Figure 2: Product backlog showing the remaining items not yet pulled into Sprint 1.
+
+## 4.3 Product Backlog
+
+| ID | Backlog Item | Priority | Story Points | Sprint Assigned | Status |
+|----|---------------|----------|----------------|-------------------|--------|
+| B1 | Login/Registration | Must | 5 | Sprint 1 | In Progress |
+| B2 | Session management | Must | 3 | Sprint 1 | To Do |
+| B3 | CI/CD pipeline setup | Must | 3 | Sprint 1 | In Progress |
+| B4 | Map & real-time availability search | Must | 8 | Sprint 2 | To Do |
+| B5 | Reservation flow (select/confirm/hold) | Must | 8 | Sprint 2 | To Do |
+| B6 | Reservation management (cancel/extend/history) | Should | 5 | Sprint 2 | To Do |
+| B7 | Payment processor integration | Must | 8 | Sprint 3 | To Do |
+| B8 | Saved payment methods | Should | 3 | Sprint 3 | To Do |
+| B9 | Low-availability notifications | Should | 5 | Sprint 3 | To Do |
+| B10 | Operator garage management (add/edit/remove) | Must | 5 | Sprint 4 | To Do |
+| B11 | Real-time occupancy dashboard | Must | 8 | Sprint 4 | To Do |
+| B12 | Dynamic pricing controls | Should | 5 | Sprint 4 | To Do |
+| B13 | Occupancy reporting | Should | 5 | Sprint 5 | To Do |
+| B14 | Financial reporting & export | Should | 5 | Sprint 5 | To Do |
+| B15 | In-garage navigation/wayfinding | Could | 5 | Sprint 5 | To Do |
+| B16 | External navigation app hand-off | Could | 2 | Sprint 5 | To Do |
+| B17 | Vehicle profile management | Could | 2 | Backlog (unscheduled) | To Do |
+| B18 | Issue-report inbox (operator side) | Could | 3 | Backlog (unscheduled) | To Do |
+| B19 | Refund processing panel (finance) | Should | 3 | Backlog (unscheduled) | To Do |
+| B20 | Load testing (NFR1 — 5,000 concurrent users) | Must | 5 | Sprint 6 | To Do |
+
+## 4.2 Project Timeline & Gantt Chart
+
+<img width="1600" height="900" alt="Gantt chart" src="gantt_chart.png" />
+Figure 3: Build timeline across Sprints 1–6, covering authentication through deployment.
+
+*Priority: MoSCoW (Must/Should/Could/Won't). Items with no sprint assignment remain in the product backlog awaiting prioritization in a future sprint-planning session.*
 
 ## 5. Risk, Quality, and Communication Management
 
