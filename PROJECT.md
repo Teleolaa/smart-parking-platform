@@ -1,5 +1,5 @@
 # Smart Parking Platform: Project Document
-**Version:** 0.6
+**Version:** 0.7
 **Prepared by:** WE ARE $oftware ¢orp
 **Date:** 09/09/2026
 
@@ -10,6 +10,7 @@
 - [4. Project Planning](#4-project-planning)
 - [5. Risk, Quality, and Communication Management](#5-risk-quality-and-communication-management)
 - [6. Resource & Cost Management](#6-resource--cost-management)
+- [7. Team & Stakeholder Management](#7-team--stakeholder-management)
 
 
 ## 1. Research: Existing Software Landscapes
@@ -437,3 +438,35 @@ Using the formula from class — n(n-1)/2 — for a team of 6 (PM, Scrum Master,
 | Reporting Dashboard | C | R | I | C | I |
 
 *R = Responsible, A = Accountable, C = Consulted, I = Informed*
+
+## 7. Team & Stakeholder Management
+
+### 7.1 Stakeholder Analysis (Power-Interest Grid)
+
+Stakeholders were identified from the project brief and requirements elicitation, then placed on a Power-Interest Grid to decide how much engagement each one needs.
+
+<img width="1600" alt="Power-Interest Grid" src="power_interest_grid.png" />
+Figure 4: Power-Interest Grid for the Smart Parking Platform.
+
+| Stakeholder | Power | Interest | Strategy | How we engage them |
+|-------------|-------|----------|----------|--------------------|
+| City Transportation Dept. (sponsor) | High | High | Manage closely | Monthly sponsor meeting, milestone sign-offs, compliance review |
+| Parking Facility Operators | High | High | Manage closely | Sprint Reviews, early dashboard demos, requirements input |
+| Development Teams (Mobile/Web/API/QA) | Medium-High | High | Manage closely | Daily stand-ups, Jira board, sprint planning/retros |
+| Third-Party Payment & Mapping Providers | High | Low-Medium | Keep satisfied | Follow API terms/SLAs, early sandbox testing, monitor change notices |
+| System Administrators | Medium | High | Keep informed | Release notes, admin training, access/permission reviews |
+| Finance & Billing Personnel | Low-Medium | High | Keep informed | Refund/receipt workflow demos, financial report previews |
+| Drivers, Vehicle Owners & Mobile App Users | Low (individually) | High | Keep informed | Release notes, demo videos, in-app feedback, beta testing |
+| General public near garages | Low | Low | Monitor | Periodic check via city channels; no active engagement |
+
+Key takeaway: the city, operators and dev team get the most PM attention. Payment/mapping providers are the biggest external dependency (Risks R2, R11), so we keep them satisfied rather than closely engaged.
+
+### 7.2 Project Charter
+
+<img width="1600" alt="Project Charter" src="project_charter.png" />
+Figure 5: Project Charter authorizing the Smart Parking Platform project.
+
+### 7.3 Team Charter
+
+<img width="1600" alt="Team Charter" src="team_charter.png" />
+Figure 6: Team Charter defining how the team operates.
