@@ -1,5 +1,5 @@
 # Smart Parking Platform: Project Document
-**Version:** 0.7
+**Version:** 0.8
 **Prepared by:** WE ARE $oftware ¢orp
 **Date:** 09/09/2026
 
@@ -11,6 +11,7 @@
 - [5. Risk, Quality, and Communication Management](#5-risk-quality-and-communication-management)
 - [6. Resource & Cost Management](#6-resource--cost-management)
 - [7. Team & Stakeholder Management](#7-team--stakeholder-management)
+- [8. Project Closure Report (Internal)](#8-project-closure-report-internal)
 
 
 ## 1. Research: Existing Software Landscapes
@@ -470,3 +471,57 @@ Figure 5: Project Charter authorizing the Smart Parking Platform project.
 
 <img width="1600" alt="Team Charter" src="team_charter.png" />
 Figure 6: Team Charter defining how the team operates.
+
+
+## 8. Project Closure Report (INTERNAL)
+
+> **INTERNAL - WE ARE $oftware Corp. Not for distribution outside the company.**
+> Closure Report Draft v1 | 11/05/2026 | Prepared by: Alice Reyes, Project Manager
+
+### 8.1 Executive Summary
+
+This report closes out the planning phase of the Smart Parking Platform project for the city Department of Transportation. The team delivered a complete project management plan for a real-time web and mobile parking platform with an operator dashboard: research, scope, requirements, schedule, backlog, risks, communications, budget, roles, stakeholder analysis and both charters. The plan budgets $35,750 (labor $30,600, infrastructure $1,900, 10% contingency $3,250) for a six-sprint, roughly 12-week build. All planned sections were delivered. Remaining gaps are minor: three backlog items are unscheduled, estimates are not yet validated against real vendor quotes, and a few cross-section inconsistencies were found at review. Recommendation: accept the plan and release the team, subject to sponsor sign-off.
+
+### 8.2 Achievements and Shortfalls
+
+**Achievements**
+- Complete project document, Sections 1-7, delivered and tied together with IDs (FR, UC, US, B, R) for traceability.
+- SRS grew from 2 fully written use cases to all 15, plus 18 user stories mapped to requirements.
+- WBS expanded from 4 branches to 10, each with an owner and estimates, feeding a six-sprint Gantt chart.
+- 20-item product backlog prioritized with MoSCoW and story points; 14-item risk register with owners and response strategies.
+- Bottom-up cost plan with monthly cashflow, a RACI matrix, a stakeholder Power-Interest Grid, and project and team charters.
+
+**Shortfalls**
+- Backlog items B17-B19 (vehicle profile, issue-report inbox, refund panel) are unscheduled and need a Phase 2 decision.
+- Jira evidence covers the Sprint 1 board and backlog only; later sprints are not documented with screenshots.
+- Cost and hour figures are planning estimates; none are validated with vendor quotes or actuals.
+- Requirements and stakeholder placements come from the project brief and were not validated with real operators or city staff.
+- Cross-section inconsistencies found at review: the monthly cashflow total (about $34,925) does not match the $35,750 grand total, and the Communication Plan assumes a team of 6 while the Roles table lists 5.
+
+### 8.3 Lessons Learned
+1. **Keep one source of truth for numbers.** Costs and team size were repeated in several sections and drifted apart.
+2. **Do not leave placeholders.** Use cases stayed as titles for weeks, which compressed the work later.
+3. **Traceability pays off.** Linking user stories, use cases, backlog items and risks by ID made cross-checking fast.
+4. **Choose visual formats early.** The Mermaid Gantt chart did not render, so it was replaced with an image; testing rendering first would have saved time.
+5. **Do stakeholder analysis at initiation.** Mapping stakeholders this late meant it could not shape the original scope and requirements.
+6. **Review risks every sprint.** The register should be revisited alongside the backlog, not written once.
+
+### 8.4 Recommendations for Future Projects
+- Write the project charter and stakeholder analysis in week 1.
+- Keep roster, rates and budget in one master table and copy from it.
+- Capture a board screenshot and a short retro note at the end of every sprint.
+- Plan unscheduled backlog items as a Phase 2 with the sponsor before closure.
+- Validate the key non-functional targets (5,000 concurrent users, 5-second refresh) with an early load-test plan, and replace cost estimates with vendor quotes.
+- Roll out in phases (pilot garage first) with a rollback plan.
+
+### 8.5 Closure Checklist
+
+| Step | Status |
+|------|--------|
+| 1. Verify all deliverables | Done: checked against Sections 1-7 and the scope in the Project Charter |
+| 2. Obtain formal acceptance | Pending: sponsor signature on the Project Charter |
+| 3. Release project resources | Planned: team released after handoff |
+| 4. Archive documents | Done: project document and images stored in the GitHub repo |
+| 5. Conduct final retrospective | Done: captured in 8.3 |
+| 6. Prepare closure report | Done: this section |
+| 7. Celebrate achievements | Planned: team demo day |
