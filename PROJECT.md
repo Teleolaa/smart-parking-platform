@@ -1,5 +1,5 @@
 # Smart Parking Platform: Project Document
-**Version:** 0.8
+**Version:** 0.9
 **Prepared by:** WE ARE $oftware ¢orp
 **Date:** 09/09/2026
 
@@ -525,3 +525,33 @@ This report closes out the planning phase of the Smart Parking Platform project 
 | 5. Conduct final retrospective | Done: captured in 8.3 |
 | 6. Prepare closure report | Done: this section |
 | 7. Celebrate achievements | Planned: team demo day |
+
+### 8.6 Objectives and Deliverables
+
+| Objective | Deliverable | Status |
+|-----------|-------------|--------|
+| Define scope and requirements | Vision & Scope, SRS (15 use cases), 18 user stories | Delivered |
+| Plan work and schedule | WBS (10 branches), Gantt chart, six-sprint timeline | Delivered |
+| Prioritize work | 20-item backlog (MoSCoW, story points) | Delivered; B17-B19 unscheduled |
+| Manage risk and communication | Risk Register (14 risks), Communication Plan | Delivered |
+| Plan resources and cost | Roles, cost plan, monthly cashflow, RACI matrix | Delivered; estimates not yet validated |
+| Manage team and stakeholders | Power-Interest Grid, Project Charter, Team Charter | Delivered |
+| Close out the project | Closure report and post mortem | Delivered (this section) |
+
+### 8.7 Final Schedule and Budget Comparison
+
+| Item | Baseline (plan) | Status at closure |
+|------|-----------------|-------------------|
+| Schedule | 6 sprints, about 12 weeks | Planning phase complete; build not started, so no schedule variance to report |
+| Budget | $35,750 (labor $30,600, infrastructure $1,900, contingency $3,250) | No build spend incurred; no actuals tracked, so no budget variance to report |
+
+KPIs to track once the build starts: schedule variance, budget variance, sprint velocity (story points completed per sprint), burndown, and bugs per release.
+
+### 8.8 Acknowledgments and Signatures
+
+Thanks to the city Department of Transportation sponsor, the parking operators who informed the requirements, and the team: Alice Reyes, Bob Nguyen, Carol Fischer, Dan Osei and Elena Vargas.
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Project Manager | Alice Reyes | ______________ | ________ |
+| Sponsor (City DOT) | ______________ | ______________ | ________ |
